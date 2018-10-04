@@ -37,8 +37,6 @@ resource "google_compute_subnetwork" "subnetwork" {
   enable_flow_logs         = "${lookup(var.subnets[count.index], "subnet_flow_logs", "false")}"
   network                  = "${google_compute_network.network.name}"
   project                  = "${var.project_id}"
-
-  secondary_ip_range = "${var.secondary_ranges[lookup(var.subnets[count.index], "subnet_name")]}"
 }
 
 /******************************************
